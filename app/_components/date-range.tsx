@@ -21,23 +21,37 @@ type Props = {
 
 export function DatePickerWithRange({ value, onChange }: Props) {
   return (
-    <div className={cn("grid gap-2")}>
+    <div className={cn("grid gap-2 ")}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
             variant={"outline"}
             className={cn(
-              " justify-start text-left font-normal ",
+              " justify-start text-left font-normal bg-zinc-200/30 hover:bg-zinc-200/30",
               !value && "text-muted-foreground"
             )}
           >
-            <CalendarIcon className="mr-2 h-4 w-4" />
             {value?.from ? (
               value.to ? (
-                <div className="space-y-1">
-                  <p>Giriş: {format(value.from, "dd.mm.yy")}</p>
-
-                  <p>Çıkış: {format(value.to, "dd.mm.yy")}</p>
+                <div className="grid grid-cols-2  gap-5 w-full   ">
+                  <div className="bg-zinc-200/30 -ml-4 px-2 py-1 rounded-lg">
+                    <p className="font-bold">Giriş</p>
+                    <div className="flex gap-2 ">
+                      <CalendarIcon className="size-4 text-yellow-800" />
+                      <p className="text-muted-foreground">
+                        {format(value.from, "dd.MM.yy")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-zinc-200/30 -mr-4 rounded-lg py-1 px-2">
+                    <p className="font-bold">Çıkış</p>
+                    <div className="flex gap-2">
+                      <CalendarIcon className="size-4 text-yellow-800" />
+                      <p className="text-muted-foreground">
+                        {format(value.to, "dd.MM.yy")}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <p>Giriş: {format(value.from, "dd.mm.yy")}</p>

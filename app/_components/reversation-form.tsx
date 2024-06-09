@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Users } from "lucide-react";
 
 const formFields = z.object({
   name: z.string().min(2).max(50),
@@ -29,6 +30,7 @@ const formFields = z.object({
   rooms: z.number().int().positive(),
   adults: z.number().int().positive(),
   children: z.number().int().positive(),
+  phone: z.string().min(8).max(15),
 });
 
 type FormFields = z.infer<typeof formFields>;
@@ -52,19 +54,19 @@ export default function ReversationForm() {
   const selectedRooms = form.watch("rooms");
   const selectedAdults = form.watch("adults");
   const selectedChildren = form.watch("children");
+
   return (
     <div>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-4 gap-8 items-start"
+          className="grid grid-cols-3 gap-4 items-start"
         >
           <FormField
             control={form.control}
             name="date"
             render={({ field }) => (
               <FormItem>
-                <FormLabel> Tarihi</FormLabel>
                 <FormControl>
                   <DatePickerWithRange
                     onChange={field.onChange}
@@ -80,8 +82,7 @@ export default function ReversationForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Adı</FormLabel>
-                <FormControl>
+                <FormControl className="bg-zinc-200/30">
                   <Input {...field} placeholder="Adınızı giriniz" type="text" />
                 </FormControl>
                 <FormMessage />
@@ -89,32 +90,53 @@ export default function ReversationForm() {
             )}
           />
 
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl className="bg-zinc-200/30 ">
+                  <Input {...field} placeholder="Telefon" type="text" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
           <Popover>
-            <div className="space-y-2">
-              <div>Misafir</div>
+            <div className="space-y-2 col-span-2">
               <PopoverTrigger asChild>
-                <Button variant="outline">
-                  {selectedRooms ? `${selectedRooms} rooms` : "1 Room"},
-                  {selectedAdults ? `${selectedAdults} adults` : "1 Adult"},
-                  {selectedChildren
-                    ? `${selectedChildren} children`
-                    : "0 Children"}
+                <Button
+                  variant="outline"
+                  className="bg-zinc-200/30 hover:bg-zinc-200/30 space-x-4 w-full"
+                >
+                  <Users className="size-6 text-yellow-800" />
+                  <p>{selectedRooms ? `${selectedRooms} Oda` : "1 Oda"}, </p>
+                  <p>
+                    {selectedAdults
+                      ? `${selectedAdults} Yetişkin`
+                      : "1 Yetişkin"}
+                    ,
+                  </p>
+                  <p>
+                    {selectedChildren ? `${selectedChildren} Çocuk` : "0 Çocuk"}
+                  </p>
                 </Button>
               </PopoverTrigger>
             </div>
-            <PopoverContent className="w-52">
+            <PopoverContent className="w-64 bg-zinc-100">
               <div className="grid gap-4">
                 <div className="space-y-4">
                   <FormField
                     control={form.control}
                     name="rooms"
                     render={({ field }) => (
-                      <FormItem className="flex items-center gap-5">
+                      <FormItem className="flex items-center justify-between gap-5">
                         <FormLabel>Oda</FormLabel>
                         <FormControl>
                           <Input
                             className="border-0 text-center
-                          focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0
+                          focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 w-28 bg-zinc-200/30
                            "
                             {...field}
                             placeholder="Adınızı giriniz"
@@ -131,12 +153,12 @@ export default function ReversationForm() {
                     control={form.control}
                     name="adults"
                     render={({ field }) => (
-                      <FormItem className="flex items-center gap-5">
+                      <FormItem className="flex items-center gap-5 justify-between">
                         <FormLabel>Yetişkin</FormLabel>
                         <FormControl>
                           <Input
                             className="border-0 text-center
-                           focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0
+                           focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 w-28 bg-zinc-200/30
                             "
                             {...field}
                             placeholder="Adınızı giriniz"
@@ -153,12 +175,12 @@ export default function ReversationForm() {
                     control={form.control}
                     name="children"
                     render={({ field }) => (
-                      <FormItem className="flex items-center gap-5">
+                      <FormItem className="flex items-center gap-5 justify-between">
                         <FormLabel>Çocuk</FormLabel>
                         <FormControl>
                           <Input
                             className="border-0 text-center
-                           focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0
+                           focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 w-28 bg-zinc-200/30
                             "
                             {...field}
                             placeholder="Adınızı giriniz"
@@ -175,7 +197,7 @@ export default function ReversationForm() {
             </PopoverContent>
           </Popover>
 
-          <Button type="submit" size="sm" className="mt-8">
+          <Button type="submit" size="sm">
             Gönder
           </Button>
         </form>
