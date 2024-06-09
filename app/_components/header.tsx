@@ -37,12 +37,12 @@ const links = [
 
 export function Header() {
   return (
-    <header className="py-2 bg-slate-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header className="py-2 bg-zinc-900">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <Link href="#" aria-label="Home">
-              <Image src="/images/logo.png" width={85} height={65} alt="logo" />
+              <Image src="/images/logo.png" width={60} height={65} alt="logo" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               {links.map((link) => (
