@@ -1,5 +1,6 @@
 import About from "./_components/about";
 import Hero from "./_components/hero";
+import KnowUs from "./_components/know-us";
 import ReversationForm from "./_components/reversation-form";
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
     <main>
       <Hero />
       <section>
-        <div className=" -mt-20  absolute left-0 right-0 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 ">
+        <div className="-mt-20  absolute left-0 right-0 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 ">
           <div className="p-4 bg-zinc-100 rounded-md shadow-md">
             <ReversationForm />
           </div>
@@ -19,6 +20,9 @@ export default function Home() {
             <About />
           </div>
         </div>
+      </section>
+      <section className="py-8 bg-zinc-200" >
+        <KnowUs/>
       </section>
     </main>
   );
