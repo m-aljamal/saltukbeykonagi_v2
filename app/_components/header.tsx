@@ -14,26 +14,9 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 import clsx from "clsx";
+import { links } from "./links";
 
-const links = [
-  {
-    text: "Ana Sayfa",
-    href: "/",
-  },
-  {
-    text: "Odalar",
-    href: "/odalar",
-  },
-  {
-    text: "Galeri",
-    href: "/galeri",
-  },
-
-  {
-    text: "İletişim",
-    href: "/iletisim",
-  },
-];
+ 
 
 export function Header() {
   return (

@@ -14,7 +14,7 @@ export function NavLink({
     <Link
       href={href}
       className={cn(
-        "inline-block rounded-lg px-2 py-1 text-xs text-zinc-100 hover:bg-zinc-400 hover:text-zinc-900 transition",
+        "inline-block rounded-lg px-2 py-1 text-sm text-zinc-100 hover:bg-zinc-400 hover:text-zinc-900 transition",
         pathName === href && "bg-zinc-300 text-slate-900"
       )}
     >
