@@ -17,7 +17,7 @@ export default function Home() {
       </section>
       <section>
         <div className="bg-zinc-200">
-          <div className="text-white pt-24 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 ">
+          <div className="text-white pt-56 sm:pt-24 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 ">
             <About />
           </div>
         </div>

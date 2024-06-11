@@ -60,13 +60,13 @@ export default function ReversationForm() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-3 gap-4 items-start"
+          className=" flex  flex-col sm:grid grid-cols-3 gap-4 items-start"
         >
           <FormField
             control={form.control}
             name="date"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormControl>
                   <DatePickerWithRange
                     onChange={field.onChange}
@@ -81,7 +81,7 @@ export default function ReversationForm() {
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormControl className="bg-zinc-200/30">
                   <Input {...field} placeholder="Adınızı giriniz" type="text" />
                 </FormControl>
@@ -94,7 +94,7 @@ export default function ReversationForm() {
             control={form.control}
             name="phone"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full"> 
                 <FormControl className="bg-zinc-200/30 ">
                   <Input {...field} placeholder="Telefon" type="text" />
                 </FormControl>
@@ -104,7 +104,7 @@ export default function ReversationForm() {
           />
 
           <Popover>
-            <div className="space-y-2 col-span-2">
+            <div className="space-y-2 col-span-2 w-full">
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
@@ -197,7 +197,7 @@ export default function ReversationForm() {
             </PopoverContent>
           </Popover>
 
-          <Button type="submit" size="sm">
+          <Button type="submit" size="sm" className="w-full">
             Gönder
           </Button>
         </form>
