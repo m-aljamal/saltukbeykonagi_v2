@@ -4,6 +4,10 @@ export const links = [
       href: "/",
     },
     {
+      text: "Neden Kilis ?",
+      href: "/neden-kilis",
+    },
+    {
       text: "Odalar",
       href: "/odalar",
     },
