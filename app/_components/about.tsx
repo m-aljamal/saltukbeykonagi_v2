@@ -8,7 +8,7 @@ export default function About() {
         <h2 className="text-2xl font-bold text-gray-700">
           Merhaba Kilis Sevdalıları !..
         </h2>
-        <div className="text-gray-700 text-sm space-y-5 mt-10 text-justify">
+        <div className="text-gray-700  space-y-5 mt-10 text-justify">
           <p>
             Herşeyin bir öyküsü vardır, elbette bir de başlangıcı. Bizim de
             öykümüz henüz yazılmaya başlandı. Öykümüzün adı Saltuk Bey Konağı
