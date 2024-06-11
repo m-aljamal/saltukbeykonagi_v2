@@ -20,22 +20,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Users } from "lucide-react";
-
-const formFields = z.object({
-  name: z.string().min(2).max(50),
-  date: z.object({
-    from: z.date(),
-    to: z.date(),
-  }),
-  rooms: z.number().int().positive(),
-  adults: z.number().int().positive(),
-  children: z.number().int().positive(),
-  phone: z.string().min(8).max(15),
-});
+import { useTransition } from "react";
+import { sendReversationEmail } from "@/actions/reversation";
+import { toast } from "sonner";
+import { formFields } from "@/lib/schema";
 
 type FormFields = z.infer<typeof formFields>;
 
 export default function ReversationForm() {
+  const [isPending, startTransition] = useTransition();
+
   const form = useForm<FormFields>({
     resolver: zodResolver(formFields),
     defaultValues: {
@@ -44,11 +38,19 @@ export default function ReversationForm() {
       rooms: 1,
       adults: 1,
       children: 0,
+      phone: "",
     },
   });
 
   const onSubmit = (data: FormFields) => {
-    console.log(data);
+    startTransition(() => {
+      const promise = sendReversationEmail(data);
+      toast.promise(promise, {
+        loading: "Gönderiliyor...",
+        success: "Gönderildi",
+        error: "Hata oluştu",
+      });
+    });
   };
 
   const selectedRooms = form.watch("rooms");
@@ -94,7 +96,7 @@ export default function ReversationForm() {
             control={form.control}
             name="phone"
             render={({ field }) => (
-              <FormItem className="w-full"> 
+              <FormItem className="w-full">
                 <FormControl className="bg-zinc-200/30 ">
                   <Input {...field} placeholder="Telefon" type="text" />
                 </FormControl>
