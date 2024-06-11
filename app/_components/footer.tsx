@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { links } from "./links";
+import Link from "next/link";
 
 const navigation = {
   social: [
     {
       name: "Facebook",
-      href: "#",
+      href: "https://www.instagram.com/saltukbeykonagi/?hl=tr",
       icon: (props: any) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -18,7 +19,7 @@ const navigation = {
     },
     {
       name: "Instagram",
-      href: "#",
+      href: "https://www.facebook.com/SaltukBeyKonagi",
       icon: (props: any) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -45,18 +46,20 @@ export default function Footer() {
         >
           {links?.map((link) => (
             <div key={link.text} className="pb-6">
-              <a
+              <Link
                 href={link.href}
                 className="text-sm leading-6 text-zinc-200 hover:text-zinc-400"
               >
                 {link.text}
-              </a>
+              </Link>
             </div>
           ))}
         </nav>
         <div className="mt-10 flex justify-center space-x-10">
           {navigation.social.map((item) => (
             <a
+              target="_blank"
+              rel="noreferrer"
               key={item.name}
               href={item.href}
               className="text-zinc-200 hover:text-zinc-400"
