@@ -13,21 +13,30 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-const formFields = z.object({
-  name: z.string().min(2).max(50),
-  email: z.string().email(),
-  message: z.string().min(10).max(500),
-  phone: z.string().min(8).max(15),
-});
-type FormFields = z.infer<typeof formFields>;
+import { contactFields } from "@/lib/schema";
+import { sendContactEmail } from "@/actions/contact";
+import { toast } from "sonner";
+import { useTransition } from "react";
+
+type FormFields = z.infer<typeof contactFields>;
 
 export default function ContactForm() {
   const form = useForm<FormFields>({
-    resolver: zodResolver(formFields),
+    resolver: zodResolver(contactFields),
   });
+  const [isPending, startTransition] = useTransition();
 
   const onSubmit = (data: FormFields) => {
-    console.log(data);
+    startTransition(() => {
+      const promise = sendContactEmail(data).then(() => {
+        form.reset();
+      });
+      toast.promise(promise, {
+        loading: "Gönderiliyor...",
+        success: "Gönderildi",
+        error: "Hata oluştu",
+      });
+    });
   };
   return (
     <Form {...form}>
@@ -83,7 +92,7 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" >Gönder</Button>
+        <Button type="submit">Gönder</Button>
       </form>
     </Form>
   );

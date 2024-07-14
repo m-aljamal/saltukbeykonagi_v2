@@ -44,7 +44,9 @@ export default function ReversationForm() {
 
   const onSubmit = (data: FormFields) => {
     startTransition(() => {
-      const promise = sendReversationEmail(data);
+      const promise = sendReversationEmail(data).then(() => {
+        form.reset();
+      });
       toast.promise(promise, {
         loading: "Gönderiliyor...",
         success: "Gönderildi",
@@ -199,7 +201,12 @@ export default function ReversationForm() {
             </PopoverContent>
           </Popover>
 
-          <Button type="submit" size="sm" className="w-full">
+          <Button
+            type="submit"
+            size="sm"
+            className="w-full"
+            disabled={isPending}
+          >
             Gönder
           </Button>
         </form>
