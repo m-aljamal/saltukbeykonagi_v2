@@ -13,7 +13,6 @@ interface HoverVideoProps {
 export default function Video({
   src,
   type,
-  
   muted,
   
 }: HoverVideoProps) {

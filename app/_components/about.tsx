@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className="mx-auto max-w-7xl grid grid-cols-1  md:grid-cols-2 items-center gap-x-10 py-10  space-y-10">
       <div>
-        <h4 className="text-yellow-800  ">HAKKIMIZDA</h4>
+        <h4 className="text-yellow-800">HAKKIMIZDA</h4>
         <h2 className="text-2xl font-bold text-gray-700">
           Merhaba Kilis Sevdalıları !..
         </h2>
@@ -32,7 +32,14 @@ araçlarınız için de otopark hizmeti veriyoruz.
         </div>
       </div>
       <div className="relative h-[500px]">
-        <Image src="/images/4.webp" alt="" fill className=" object-cover ring-8 ring-zinc-100 rounded-md" />
+        <video
+          className="h-full w-full ring-8 ring-zinc-100 object-cover object-center  "
+          muted
+          controls
+        >
+          <source src="/videos/vn1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ const testimonials = [
     [
       "/images/1.webp",
       "/images/2.webp",
+      "/images/n1.jpeg",
       "/images/9.webp",
       "/images/10.webp",
       "/images/16.webp",
@@ -29,6 +30,8 @@ const testimonials = [
       "/images/19.webp",
       "/images/26.webp",
       "/images/27.webp",
+      "/images/n2.jpeg",
+     
     ],
   ],
   [
@@ -41,6 +44,8 @@ const testimonials = [
       "/images/21.webp",
       "/images/28.webp",
       "/images/29.webp",
+      "/images/n3.jpeg",
+     
     ],
     [
       "/images/7.webp",
@@ -51,6 +56,8 @@ const testimonials = [
       "/images/23.webp",
       "/images/30.webp",
       "/images/31.webp",
+      "/images/n4.jpeg",
+      "/images/n5.jpeg",
     ],
   ],
 ];
@@ -76,13 +83,15 @@ export default function Example() {
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
-          <div className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-gray-900/5 xl:col-start-2 xl:row-end-1 relative h-[500px]">
-            <Image
-              src="/images/17.webp"
-              alt="room"
+          <div className="col-span-1 sm:col-span-2 sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-gray-900/5 xl:col-start-2 xl:row-end-1 relative h-[500px]">
+            <video
               className="h-full w-full object-cover object-center p-4"
-              layout="fill"
-            />
+              muted
+              controls
+            >
+              <source src="/videos/vn2.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
           {testimonials.map((columnGroup, columnGroupIdx) => (
             <div

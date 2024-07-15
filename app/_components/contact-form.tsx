@@ -92,7 +92,9 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Gönder</Button>
+        <Button disabled={isPending} type="submit">
+          Gönder
+        </Button>
       </form>
     </Form>
   );
