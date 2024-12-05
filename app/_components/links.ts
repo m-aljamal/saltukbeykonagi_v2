@@ -20,4 +20,8 @@ export const links = [
       text: "İletişim",
       href: "/iletisim",
     },
+    {
+     text: "SÜRÜDÜRÜLEBİLİRLİK",
+        href:"/surudurukebilirlik"
+    }
   ];
