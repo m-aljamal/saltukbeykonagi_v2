@@ -15,19 +15,20 @@ function Page() {
 
   return (
     <PageSheet>
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {images.map((image: string) => (
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="space-y-8">
+          {images.map((image: string, index: number) => (
             <div
               key={image}
-              className="relative aspect-square overflow-hidden rounded-lg"
+              className="relative aspect-[16/9] overflow-hidden rounded-lg shadow-lg"
             >
               <Image
                 src={image}
-                alt="Gallery image"
+                alt={`Gallery image ${index + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover hover:scale-105 transition-transform duration-300"
+                className="object-cover"
+                priority={index === 0}
               />
             </div>
           ))}
