@@ -20,14 +20,15 @@ function Page() {
           {images.map((image: string, index: number) => (
             <div
               key={image}
-              className="relative aspect-[16/9] overflow-hidden rounded-lg shadow-lg"
+              className="relative w-full"
+              style={{ paddingBottom: "141.42%" }} // Aspect ratio for A4 (1:√2)
             >
               <Image
                 src={image}
-                alt={`Gallery image ${index + 1}`}
+                alt={`Full A4 image ${index + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover"
+                className="object-contain"
                 priority={index === 0}
               />
             </div>
