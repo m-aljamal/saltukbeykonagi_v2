@@ -10,7 +10,7 @@ function Page() {
   const [currentImage, setCurrentImage] = useState("");
   const [shouldShow, setShouldShow] = useState(false);
 
-  const images = ["n-1.jpeg", "n-2.jpeg", "n-3.jpeg", "n-4.jpeg", "n-5.jpeg"];
+  const images = ["/images/n-1.jpeg", "/images/n-2.jpeg", "/images/n-3.jpeg", "/images/n-4.jpeg", "/images/n-5.jpeg"];
 
   const handleImageClick = (image: string) => {
     setShouldShow(true);
