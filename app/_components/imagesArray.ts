@@ -21,7 +21,6 @@ const imagesArry: string[] = [
   "/images/19.webp",
   "/images/20.webp",
   "/images/21.webp",
-  "/images/22.webp",
   "/images/23.webp",
   "/images/24.webp",
   "/images/25.webp",

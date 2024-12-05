@@ -52,7 +52,6 @@ const testimonials = [
       "/images/8.webp",
       "/images/14.webp",
       "/images/15.webp",
-      "/images/22.webp",
       "/images/23.webp",
       "/images/30.webp",
       "/images/31.webp",
