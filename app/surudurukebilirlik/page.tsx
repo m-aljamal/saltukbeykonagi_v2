@@ -6,7 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import ImageModul from "../_components/ImageModul";
 
-function page() {
+function Page() {
   const [currentImage, setCurrentImage] = useState("");
   const [shouldShow, setShouldShow] = useState(false);
 
@@ -46,4 +46,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
