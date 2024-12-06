@@ -12,7 +12,7 @@ export default function About() {
           <p>
             Herşeyin bir öyküsü vardır, elbette bir de başlangıcı. Bizim de
             öykümüz henüz yazılmaya başlandı. Öykümüzün adı Saltuk Bey Konağı
-            Saltuk Bey Konağı 10 odadan oluşmakta. Odalarımız Kilis’in taş
+            Saltuk Bey Konağı 8 odadan oluşmakta. Odalarımız Kilis’in taş
             mekanlarını yansıtan dış mimarisiyle nostalji esintileri getirirken
             iç şıklığıyla da kendinizi özel hissetmenizi sağlıyor.
           </p>
